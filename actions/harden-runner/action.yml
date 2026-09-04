@@ -1,0 +1,21 @@
+name: Org Harden Runner
+description: Ueberwacht/blockt ausgehende Verbindungen von Actions-Runnern (Egress-Schutz gegen Secret-Exfiltration wie am 04.09.2026)
+
+inputs:
+  egress-policy:
+    description: "audit (nur loggen) oder block (nur Allowlist erlauben)"
+    required: false
+    default: "audit"
+  allowed-endpoints:
+    description: "Zusaetzliche erlaubte Endpunkte, newline-getrennt (nur relevant bei egress-policy=block)"
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - uses: step-security/harden-runner@v2
+      with:
+        egress-policy: ${{ inputs.egress-policy }}
+        allowed-endpoints: ${{ inputs.allowed-endpoints }}
+        disable-sudo: false
