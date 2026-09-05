@@ -1,0 +1,7 @@
+{
+  "name": "Harbor Deploy (Standard)",
+  "description": "Standard-Pipeline: Build & Push nach Harbor bei Release, inkl. Egress-Schutz (harden-runner), optionalem Portainer-Trigger und Discord-Benachrichtigung.",
+  "iconName": "docker",
+  "categories": ["Deployment"],
+  "filePatterns": ["Dockerfile"]
+}
