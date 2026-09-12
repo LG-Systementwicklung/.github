@@ -20,7 +20,7 @@ jobs:
 
     - uses: docker/login-action@v3
       with:
-        registry: harbor.lgs-dev.de
+        registry: harbor.lgs-system.de
         username: ${{ secrets.HARBOR_USERNAME }}
         password: ${{ secrets.HARBOR_PASSWORD }}
 
@@ -29,8 +29,8 @@ jobs:
         context: .
         push: true
         tags: |
-          harbor.lgs-dev.de/PROJEKT/${{ github.event.repository.name }}:${{ github.run_number }}
-          harbor.lgs-dev.de/PROJEKT/${{ github.event.repository.name }}:latest
+          harbor.lgs-system.de/PROJEKT/${{ github.event.repository.name }}:${{ github.run_number }}
+          harbor.lgs-system.de/PROJEKT/${{ github.event.repository.name }}:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
